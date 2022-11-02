@@ -1,5 +1,6 @@
 // * THAT ONE SHORTCUT IS rafce ^_^
 import React, { useState } from  'react';
+import { validEmail } from './Regex';
     
     
 const UserForm = (props) => {
@@ -40,19 +41,18 @@ const UserForm = (props) => {
         }
     }
 
+    // ! ADDED REGEX AND CHANGED THE ERROR MESSAGE.
     const handleEmail = (e) => {
         setEmail(e.target.value);
         if(e.target.value.length < 1) {
             setEmailError("");
-        } else if(e.target.value.length < 5) {
-            setEmailError("Email minimum 5 characters.");
+        } else if(e.target.value.length < 5 || !validEmail.test(email)) {
+            setEmailError("Please enter a valid email address.");
         } else {
             setEmailError("");
         }
     }
 
-
-    // ! I'M ASSUMING THAT WE'LL EVENTUALLY USE REGEX?
     const handlePassword = (e) => {
         setPassword(e.target.value);
         if(e.target.value.length < 1) {
