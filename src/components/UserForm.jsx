@@ -1,4 +1,4 @@
-import { findByLabelText } from '@testing-library/react';
+// * THAT ONE SHORTCUT IS rafce ^_^
 import React, { useState } from  'react';
     
     
